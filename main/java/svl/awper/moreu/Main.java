@@ -20,7 +20,7 @@ public class Main {
 		//Item/Block init and regestering
 		//Config Handlings
 		
-		rottBlock = new RottBlock(Material.sand).setBlockName("BlockRott").setBlockTextureName("mu:blockrott").setHardness(1.5F).setStepSound(Block.soundTypeSand);
+		rottBlock = new RottBlock(Material.clay).setBlockName("BlockRott").setBlockTextureName("mu:blockrott").setHardness(1.5F).setStepSound(Block.soundTypeSnow);
 		
 		GameRegistry.registerBlock(rottBlock, rottBlock.getUnlocalizedName().substring(5));
 
