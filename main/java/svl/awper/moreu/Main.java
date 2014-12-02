@@ -4,8 +4,10 @@ import javafx.scene.control.Tab;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -55,7 +57,7 @@ public class Main {
 	public void Init(FMLInitializationEvent event){
 		//Proxy, TileEntity, entity, GUI and Packet Registering
 
-		
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.leather), new Object[] {rottToxic, Items.water_bucket.setContainerItem(Items.bucket)});
 	}
 	
 	@EventHandler
