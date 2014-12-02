@@ -5,6 +5,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -16,19 +18,36 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = "mu", name = "More Uses", version ="1.0")
 public class Main {
 	
+	//Materials
+	public static ToolMaterial zombiMaterial = EnumHelper.addToolMaterial("Zombi Material", 0, 500, 30.0F, 1.0F, 7);
+	
+	//Blocks
 	public static Block rottBlock;
+	
+	//Items
 	public static Item rottToxic; 
+	
+	//Tools
+	public static Item zombiPickaxe;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
-		//Item/Block init and regestering
-		//Config Handlings
+		//Item/Block init and registering
+		//Config Handling
 		
+		//Blocks
 		rottBlock = new RottBlock(Material.clay).setBlockName("BlockRott").setBlockTextureName("mu:blockrott").setHardness(1.5F).setStepSound(Block.soundTypeSnow);
-	    rottToxic = new RottToxic(1, 0.8F, false).setUnlocalizedName("ToxicRott").setCreativeTab(CreativeTabs.tabFood).setTextureName("mu:toxicrott");
 		
+		//Items
+	    rottToxic = new RottToxic(1, 0.8F, false).setUnlocalizedName("ToxicRott").setCreativeTab(CreativeTabs.tabFood).setTextureName("mu:toxicrott");
+	    
+	    //Tools
+		zombiPickaxe = new ZombiePickaxe(zombiMaterial).setUnlocalizedName("ZombiPickaxe").setCreativeTab(CreativeTabs.tabTools).setTextureName("mu:pickaxezombie");
+	    
+	    //Registry
 		GameRegistry.registerBlock(rottBlock, rottBlock.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(rottToxic, rottToxic.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(zombiPickaxe, zombiPickaxe.getUnlocalizedName().substring(5));
 
 	}
 	
