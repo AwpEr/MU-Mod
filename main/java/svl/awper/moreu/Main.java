@@ -56,8 +56,13 @@ public class Main {
 	@EventHandler
 	public void Init(FMLInitializationEvent event){
 		//Proxy, TileEntity, entity, GUI and Packet Registering
-
+		
+		//Various leather crafting
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.leather), new Object[] {rottToxic, Items.water_bucket.setContainerItem(Items.bucket)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.leather, 3), new Object[] {rottToxic, rottToxic, rottToxic, Items.water_bucket.setContainerItem(Items.bucket)});
+		GameRegistry.addRecipe(new ItemStack(Items.leather, 8), new Object[] {"TTT","TBT","TTT",'T', rottToxic, 'B', Items.water_bucket.setContainerItem(Items.bucket)});
+		
+		
 	}
 	
 	@EventHandler
